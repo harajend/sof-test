@@ -71,7 +71,8 @@ sof_alsa_card_found()
     # note: assumes SOF card names to start with "sof", e.g.
     #   - /proc/asound/sofsoundwire/id
     #   - /proc/asound/sofhdadsp/id
-    test -e /proc/asound/sof*/id
+    test -e /proc/asound/sofsoundwire/id ||
+        test -e /proc/asound/sofhdadsp/id
 }
 
 wait_for_sof_alsa_card()
